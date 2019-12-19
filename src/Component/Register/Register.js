@@ -25,7 +25,7 @@ class Register extends React.Component {
 	}
 
 	onSubmitSignIn= () =>{
-		fetch('http://localhost:3000/register', {
+		fetch('https://radiant-coast-39969.herokuapp.com/register', {
 			method:'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -37,7 +37,7 @@ class Register extends React.Component {
 		})
 			.then(response => response.json()) //gets the response and parse the JSON in this case the response from the server its a success if the correct user is entered
 			.then(user => {
-				if(user){
+				if(user.id){
 					this.props.loadUser(user)
 					this.props.onRouteChange('home');
 				}
